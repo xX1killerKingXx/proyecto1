@@ -130,6 +130,7 @@ class principal(options):
 
     def editar(self):
         print("holamundo")
+        print("segunda prueba")
         pass
         
 
