@@ -127,6 +127,9 @@ class principal(options):
         self.wind.state("zoomed")
 
         Ventana2.destroy()
+
+    def editar(self):
+        pass
         
 
 if __name__=="__main__":
