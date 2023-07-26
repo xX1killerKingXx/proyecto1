@@ -57,9 +57,10 @@ class principal(options):
         Entry(self.fr,textvariable=self.arti).grid(row=3,column=4,padx=3)
         Entry(self.fr,textvariable=self.prec).grid(row=3,column=5,padx=3)
         Entry(self.fr,textvariable=self.cant).grid(row=3,column=6,padx=3)
-        save=Button(self.fr,text='Guardar',command=self.guardar,height=5,width=20).grid(row=3,column=7,padx=10)
+        save=Button(self.fr,text='Guardar',command=self.guardar,height=2,width=9).grid(row=2,column=7,padx=10)
+        asking=Button(self.fr,text="buscar",command=self.buscar,height=2,width=9).grid(row=3,column=7,padx=10)
         delete=Button(self.fr,text="borrar dato de la tabla",command=self.eliminardato,height=3).grid(row=5,column=3)
-
+        reload=Button(self.fr,text="recargar",command=self.dattable).grid(row=3,column=8)
         self.tabla=ttk.Treeview(self.fr,height=10,columns=('','','',))
         self.tabla.grid(row=4, column=2, columnspan=6, padx=3, pady=2)
         barra=Scrollbar(self.fr,orient=VERTICAL,command=self.tabla.yview)
@@ -132,6 +133,11 @@ class principal(options):
         graba=self.tabla.get_children()
         for element in graba:
             self.tabla.delete(element)
+        
+        for rew in self.inst.buscar(self.code.get(),self.arti.get(),self.prec.get(),self.cant.get()):
+            self.tabla.insert('','end',text=rew[0],values=(rew[1],rew[2],rew[3]))
+            
+        
 
         
         
