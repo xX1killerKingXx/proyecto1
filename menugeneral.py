@@ -128,10 +128,13 @@ class principal(options):
 
         Ventana2.destroy()
 
-    def editar(self):
-        print("holamundo")
-        print("segunda prueba")
-        pass
+    def buscar(self):
+        graba=self.tabla.get_children()
+        for element in graba:
+            self.tabla.delete(element)
+
+        
+        
         
 
 if __name__=="__main__":

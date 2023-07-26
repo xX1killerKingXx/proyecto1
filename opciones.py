@@ -53,3 +53,8 @@ class options(object):
           dev=self.cur.execute("SELECT * FROM papele ORDER BY articulo ")
           self.date.commit()
           return dev
+     
+     def buscar(self,codigo,articulo,precio,cantidad):
+          ask=self.cur.execute("SELECT * From papele WHERE codigo=? OR articulo=? OR precio=? OR cantidad=?",(codigo,articulo,precio,cantidad))
+          self.date.commit()
+          return ask
